@@ -1,3 +1,8 @@
+'use client'
+
+import { useState } from "react";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { firestore } from "@/firebase";
 import Image from "next/image";
 import NavBar from "../components/NavBar";
 import { Montserrat } from "next/font/google";
@@ -10,7 +15,38 @@ const prompt = Prompt({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
+
+
 const WaitlistPage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+
+  /* Handle Submission:
+   * Create a document in Firestore
+   * with the user's name and email.
+  */
+  const handleSubmit = async (e) => {
+    /* Prevent page reload when submitting the form */
+    e.preventDefault();
+
+    /* Add document to waitlist collection: */
+    try {
+      await addDoc(collection(firestore, "waitlist"), {
+        name: name,
+        email: email,
+      });
+
+      /* Update submit state: */
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error adding document i.e. user to waitlist: ", error);
+    }
+
+  }
+
+
   return (
     /* Screen Container */
     <div className="flex flex-col min-h-screen bg-[#efe6f7]">
@@ -41,44 +77,59 @@ const WaitlistPage = () => {
 
         {/*************  FORM  ***********/}
         {/* Form Container: */}
-        <div className="flex flex-col mt-24">
 
-          {/* Name Field: */}
-          <div className="relative w-80">
-            <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 size-4"/>
-            <input 
-              className="border-2 border-black bg-white/30 rounded-lg py-2 pl-10
-                         pr-4 w-full z-10"
-              type="text"
-              placeholder="Name"
-            >
-            </input>
+        {submitted ? (
+          /* If form has been submitted: */
+          <div>
+            Thanks for joining the waitlist!
           </div>
+          ) : (
+          /* If the form has not been submitted: */
+          <form className="flex flex-col mt-24" onSubmit={handleSubmit}>
 
-          {/* Email Field: */}
-          <div className="relative w-80 mt-4">
-            <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 size-4"/>
-            <input 
-              className="border-2 border-black bg-white/30 rounded-lg py-2 pl-10
-                         pr-4 w-full z-10 text-pretty"
-              type="email"
-              placeholder="Enter your email"
-              // TODO: Make this field required for submission
+            {/* Name Field: */}
+            <div className="relative w-80">
+              <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 size-4"/>
+              <input 
+                className="border-2 border-black bg-white/30 rounded-lg py-2 pl-10
+                          pr-4 w-full z-10"
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => {setName(e.target.value)}}
+                required
+              >
+              </input>
+            </div>
+
+            {/* Email Field: */}
+            <div className="relative w-80 mt-4">
+              <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 size-4"/>
+              <input 
+                className="border-2 border-black bg-white/30 rounded-lg py-2 pl-10
+                          pr-4 w-full z-10 text-pretty"
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => {setEmail(e.target.value)}}
+                required
+              >
+              </input>
+            </div>
+
+            {/* Submit Button: */}
+            <button 
+              className={`${monstserrat.className} bg-[#d3aefe]/80 w-80 h-11 text-lg
+                          font-extrabold mt-4 border-black border-2 rounded-xl z-10
+                          hover:scale-105 transition-transform
+                          duration-500 ease-in-out`}
+              type="submit"
             >
-            </input>
-          </div>
+              Join Waitlist
+            </button>
+          </form>
+        )}
 
-          {/* Submit Button: */}
-          <button 
-            className={`${monstserrat.className} bg-[#d3aefe]/80 w-80 h-11 text-lg
-                        font-extrabold mt-4 border-black border-2 rounded-xl z-10
-                        hover:scale-105 transition-transform
-                        duration-500 ease-in-out`}
-            // onClick={Do_stuff}
-          >
-            Join Waitlist
-          </button>
-        </div>
 
       </div>
 

@@ -1,9 +1,15 @@
+"use client"
+
 import Image from "next/image";
 import NavBar from "../components/NavBar";
 import { Montserrat } from "next/font/google";
 import { Prompt } from "next/font/google";
 import { PlayCircleIcon, PlayIcon, PlusIcon, StarIcon } from "@heroicons/react/24/solid"
 import Link from "next/link";
+import { useState } from "react";
+import { useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "@/firebase";
 
 const monstserrat = Montserrat({ subsets: ['latin'] });
 const prompt = Prompt({ 
@@ -11,7 +17,30 @@ const prompt = Prompt({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
+
+
+
 const HomePage = () => {
+  const [waitlistTotal, setWaitlistTotal] = useState(0);
+  
+  /* Get # of people on waitlist: */
+  const getWaitlistTotal = async () => {
+    try {
+      /* Get the size of documents in the "waitlist" collection: */
+      const snapshot = await getDocs(collection(firestore, "waitlist"));
+      setWaitlistTotal(snapshot.size);
+      console.log("the size of the document is:" + snapshot.size)
+    } catch (error) {
+      console.error("Error getting waitlist total: ", error);
+    }
+  }
+  
+  /* Get # of people on waitlist everytime the page loads: */
+  useEffect (() => {
+    getWaitlistTotal();
+  }, []);
+
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Background Noise */}
@@ -183,8 +212,7 @@ const HomePage = () => {
                 </Link>
               </div>
               {/* Number of People on Waitlist: */}
-              {/* TODO: Get number from Firebase database and display here */}
-              <p className="font-medium text-3xl"> 0 </p>
+              <p className="font-medium text-3xl"> {waitlistTotal} </p>
             </div>
 
             {/* Text: */}
