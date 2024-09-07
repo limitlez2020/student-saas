@@ -7,7 +7,7 @@ import Image from "next/image";
 import NavBar from "../components/NavBar";
 import { Montserrat } from "next/font/google";
 import { Prompt } from "next/font/google";
-import { EnvelopeIcon, PlayCircleIcon, PlayIcon, PlusIcon, StarIcon, UserIcon } from "@heroicons/react/24/solid"
+import { CheckBadgeIcon, EnvelopeIcon, PlayCircleIcon, PlayIcon, PlusIcon, RocketLaunchIcon, StarIcon, UserIcon } from "@heroicons/react/24/solid"
 
 const monstserrat = Montserrat({ subsets: ['latin'] });
 const prompt = Prompt({ 
@@ -20,7 +20,8 @@ const prompt = Prompt({
 const WaitlistPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  // const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(true);
 
 
   /* Handle Submission:
@@ -80,8 +81,12 @@ const WaitlistPage = () => {
 
         {submitted ? (
           /* If form has been submitted: */
-          <div>
-            Thanks for joining the waitlist!
+          <div className="flex flex-col items-center justify-center mt-24">
+            {/* Check Icon: */}
+            <CheckBadgeIcon className="size-10"/>
+            <p className={`${prompt.className} text-center text-lg`}>
+              Thank you for joining the waitlist!
+            </p>
           </div>
           ) : (
           /* If the form has not been submitted: */
