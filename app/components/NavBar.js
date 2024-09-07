@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 import { Montserrat } from 'next/font/google';
-import { Poppins } from 'next/font/google';
 import { Prompt } from 'next/font/google';
 
 const monstserrat = Montserrat({ subsets: ['latin'] });

@@ -20,8 +20,7 @@ const prompt = Prompt({
 const WaitlistPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  // const [submitted, setSubmitted] = useState(false);
-  const [submitted, setSubmitted] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
 
 
   /* Handle Submission:
@@ -52,11 +51,8 @@ const WaitlistPage = () => {
     /* Screen Container */
     <div className="flex flex-col min-h-screen bg-[#efe6f7]">
       {/* Background Noise */}
-      <img 
-        className="absolute top-0 opacity-10 w-full h-full" 
-        src="/noise.png" 
-        alt="placeholder"
-      />
+      <div className="absolute top-0 opacity-10 w-full h-full bg-noise-pattern"/>
+
 
       <NavBar/>
 
@@ -81,9 +77,9 @@ const WaitlistPage = () => {
 
         {submitted ? (
           /* If form has been submitted: */
-          <div className="flex flex-col items-center justify-center mt-24">
+          <div className="flex flex-col items-center justify-center mt-24 mb-32">
             {/* Check Icon: */}
-            <CheckBadgeIcon className="size-10"/>
+            <CheckBadgeIcon className="text-black border-black size-10"/>
             <p className={`${prompt.className} text-center text-lg`}>
               Thank you for joining the waitlist!
             </p>
@@ -134,11 +130,8 @@ const WaitlistPage = () => {
             </button>
           </form>
         )}
-
-
       </div>
 
-      
     </div>
   );
 }
