@@ -26,17 +26,17 @@ const NavBar = (props) => {
 
       {/* Links */}
       <div className='flex flex-row gap-3 md:gap-8 lg:gap-8 font-normal text-sm'>
-        <Link href="/about">
+        <Link href="/about_page">
           <p className='hover:font-medium'>
             About
           </p>
         </Link>
-        <Link href="/features">
+        <Link href="/features_page">
           <p className='hover:font-medium'>
             Features
           </p>
         </Link>
-        <Link href="/pricing">
+        <Link href="/pricing_page">
           <p className='hover:font-medium'>
             Pricing
           </p>
@@ -46,7 +46,7 @@ const NavBar = (props) => {
       {/* Buttons: */}
       <div className='flex flex-row justify-between space-x-2'>
         <button className={`${monstserrat.className} text-base border-black bg-[#d3aefe] border-2
-                           p-2 px-4 rounded-md font-extrabold hover:bg-[#fede65]`}>
+                          p-2 px-4 rounded-md font-extrabold hover:bg-[#fede65]`}>
           DEMO
         </button>
       </div>
