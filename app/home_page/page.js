@@ -109,7 +109,7 @@ const HomePage = () => {
               </div>
 
               {/* Button */}
-              <Link href={"/waitlist_page"}>
+              <Link href="/waitlist_page">
                 <div className="relative transition-transform duration-300 ease-in-out hover:scale-105">
                   <button 
                     className={`${monstserrat.className} bg-white w-44 h-11 text-lg font-extrabold
@@ -197,7 +197,7 @@ const HomePage = () => {
                 <div className="w-10 h-10 border-black border-2 rounded-lg"></div>
                 <div className="w-10 h-10 border-black border-2 rounded-lg"></div>
                 {/* Add button: */}
-                <Link className="z-10" href={"/waitlist_page"}>
+                <Link className="z-10" href="/waitlist_page">
                   <button className="w-5 h-5 flex justify-center items-center
                                     bg-yellow-200 border-black border-2 rounded-full
                                     hover:rotate-90 transition-transform duration-700 ease-in-out"
