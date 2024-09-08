@@ -1,5 +1,8 @@
+"use client";
+
 import Link from 'next/link';
 import React from 'react';
+import { useState } from 'react';
 import { Montserrat } from 'next/font/google';
 import { Prompt } from 'next/font/google';
 
@@ -10,48 +13,126 @@ const prompt = Prompt({
 });
 
 const ChatBot = (props) => {
-  return (
-    /* NavBar: */
-    <div className={`${prompt.className} flex flex-row mt-6 mx-10 md:mx-36 lg:mx-52
-                    max-w-[1200px] justify-between items-center rounded-xl px-5 py-3
-                    shadow-sm bg-white/75 backdrop-blur-2xl border border-white/20
-                    sticky top-10 z-50`}
-    >
-      {/* Logo: */}
-      <Link href="/">
-        <p className={`${monstserrat.className} font-extrabold text-2xl`}>
-          Claud.
-        </p>
-      </Link>
+  const [messages, setMessages] = useState([{
+    role: "assistant",
+    content: "Hey there! How are you feeling today?",
+  }])
 
-      {/* Links */}
-      <div className='flex flex-row gap-3 md:gap-8 lg:gap-8 font-normal text-sm'>
-        <Link href="/about_page">
-          <p className='hover:font-medium'>
-            About
-          </p>
-        </Link>
-        <Link href="/features_page">
-          <p className='hover:font-medium'>
-            Features
-          </p>
-        </Link>
-        <Link href="/pricing_page">
-          <p className='hover:font-medium'>
-            Pricing
-          </p>
-        </Link>
-      </div>
+  /* Message state for whatever ,message you'll be typing in the chat box: */
+  const [message, setMessage] = useState("");
 
-      {/* Buttons: */}
-      <Link href="/demo_page">
-        <div className='flex flex-row justify-between space-x-2'>
-          <button className={`${monstserrat.className} text-base border-black bg-[#d3aefe] border-2
-                            p-2 px-4 rounded-md font-extrabold hover:bg-[#fede65]`}>
-            DEMO
+  /* Send current messages array to the backend and return the response: */
+  const sendMessage = async () => {
+    setMessage('');
+    setMessages((messages) => [
+      ...messages,
+      {
+        role: "user",
+        content: message,
+      },
+      {
+        role: "assistant",
+        content: "",
+      }
+    ]);
+  
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify([...messages,
+          {
+            role: 'user',
+            content: message,
+          }
+        ]),
+      });
+  
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+  
+      let result = '';
+      let done = false;
+  
+      while (!done) {
+        const { value, done: readerDone } = await reader.read();
+        done = readerDone;
+  
+        const text = decoder.decode(value || new Uint8Array, { stream: !done });
+        result += text;
+  
+        setMessages((messages) => {
+          let lastMessage = messages[messages.length - 1];
+          let otherMessages = messages.slice(0, messages.length - 1);
+          return [
+            ...otherMessages,
+            {
+              ...lastMessage,
+              content: lastMessage.content + text,
+            },
+          ];
+        });
+      }
+    } catch (error) {
+      console.error("Error in Chat:", error);
+      setMessages((messages) => [
+        ...messages,
+        {
+          role: "assistant",
+          content: "Sorry, something went wrong.",
+        },
+      ]);
+    }
+  };
+
+
+
+  return(
+    <div className='w-full flex flex-col justify-center align-middle'>
+      {/* Chat Area UI: */}
+      <div className='flex min-h-screen flex-col items-center p-12'>
+        {/* Messages */}
+        <div className='flex flex-col space-y-2 space-x-2 flex-grow overflow-auto
+                        max-h-full'>
+          {/* DIsplay the messages: */}
+          {
+            messages.map((message, index) => (
+              <div key={index}
+                   className={`flex flex-col space-y-2
+                              ${message.role === "assistant" ? "items-start" : "items-end"}`}>
+                <div 
+                  className={`p-2 text-white rounded-lg
+                            ${message.role === "assistant" ? "bg-blue-600" : "bg-green-600"}`}>
+                  {message.content}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        {/* Input UI: */}
+        <div className='w-full flex flex-row items-center'>
+          <input type='text' 
+                 aria-label='message'
+                 placeholder='message...'
+                 className='flex-grow p-2 border-2 border-solid border-black rounded-lg'
+                 value={message}
+                 onChange={(e) => setMessage(e.target.value)}
+                 onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      sendMessage();
+                    }
+                 }}
+          />
+          <button className='p-2 bg-blue-600 text-white rounded-lg'
+                  onClick={sendMessage}
+          >
+            Send
           </button>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }

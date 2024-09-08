@@ -31,9 +31,9 @@ const DemoPage = () => {
 
   return (
     /* Screen Container */
-    <div className="flex flex-col min-h-screen bg-[#efe6f7]">
+    <div className="flex flex-col relative min-h-screen bg-[#efe6f7]">
       {/* Background Noise */}
-      <div className="absolute top-0 opacity-10 w-full h-full bg-noise-pattern"/>
+      <div className="absolute top-0 left-0 opacity-10 w-full h-full bg-noise-pattern"/>
 
       <NavBar/>
 
@@ -77,7 +77,7 @@ const DemoPage = () => {
 
         {/* Tool */}
         {isClicked === "Chatbot" && (
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-4 z-10">
             <ChatBot/>
           </div>
         )}
