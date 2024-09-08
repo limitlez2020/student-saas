@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import NavBar from "../components/NavBar";
+import ChatBot from "../components/ChatBot";
 import { Montserrat } from "next/font/google";
 import { Prompt } from "next/font/google";
 import { PlayCircleIcon, PlayIcon, PlusIcon, StarIcon } from "@heroicons/react/24/solid"
