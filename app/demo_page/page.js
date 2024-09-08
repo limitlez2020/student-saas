@@ -56,7 +56,7 @@ const DemoPage = () => {
           {/* Tools NavBar */}
           <div className={`${prompt.className} flex flex-row justify-between items-center
                           w-full gap-2 font-normal text-sm bg-[#9854e5]/30 px-1 py-1
-                          rounded-lg z-10 shadow-inner border-black/15 border-2`}>
+                          rounded-lg z-10 shadow-inner border-black/15 border-2 mb-10`}>
             {/* Chatbot */}
             <button className={`px-4 py-2 rounded-md ${isClicked === "Chatbot" ? "bg-white" : ""}`}
                     onClick={() => handleClick("Chatbot")}>
@@ -77,7 +77,7 @@ const DemoPage = () => {
 
         {/* Tool */}
         {isClicked === "Chatbot" && (
-          <div className="flex flex-col items-center gap-4 z-10">
+          <div className="flex flex-col items-center gap-4 z-10 mb-20">
             <ChatBot/>
           </div>
         )}

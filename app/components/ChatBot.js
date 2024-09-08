@@ -90,12 +90,13 @@ const ChatBot = (props) => {
 
 
   return(
-    <div className='w-full flex flex-col justify-center align-middle'>
+    <div className={`${prompt.className} w-full flex flex-col justify-center bg-[#1E1E1E]
+                   align-middle border-black/20 border-2 rounded-2xl shadow-inner`}>
       {/* Chat Area UI: */}
       <div className='flex min-h-screen flex-col items-center p-12'>
         {/* Messages */}
-        <div className='flex flex-col space-y-2 space-x-2 flex-grow overflow-auto
-                        max-h-full'>
+        <div className='flex flex-col space-y-2 space-x-2 flex-grow
+                        max-h-full mb-16'>
           {/* DIsplay the messages: */}
           {
             messages.map((message, index) => (
@@ -103,8 +104,8 @@ const ChatBot = (props) => {
                    className={`flex flex-col space-y-2
                               ${message.role === "assistant" ? "items-start" : "items-end"}`}>
                 <div 
-                  className={`p-2 text-white rounded-lg
-                            ${message.role === "assistant" ? "bg-blue-600" : "bg-green-600"}`}>
+                  className={`p-2 rounded-lg
+                            ${message.role === "assistant" ? "bg-black/30 text-white" : "bg-white text-black"}`}>
                   {message.content}
                 </div>
               </div>
@@ -113,11 +114,12 @@ const ChatBot = (props) => {
         </div>
 
         {/* Input UI: */}
-        <div className='w-full flex flex-row items-center'>
+        <div className={`${monstserrat.className} w-full flex flex-row items-center gap-2`}>
           <input type='text' 
                  aria-label='message'
                  placeholder='message...'
-                 className='flex-grow p-2 border-2 border-solid border-black rounded-lg'
+                 className='flex-grow p-2 border-2 border-solid bg-white/30 text-sm
+                          border-black rounded-lg'
                  value={message}
                  onChange={(e) => setMessage(e.target.value)}
                  onKeyDown={(e) => {
@@ -126,10 +128,11 @@ const ChatBot = (props) => {
                     }
                  }}
           />
-          <button className='p-2 bg-blue-600 text-white rounded-lg'
+          <button className='p-2 bg-[#d3aefe] text-black rounded-lg border-black
+                             border-2 font-bold text-sm'
                   onClick={sendMessage}
           >
-            Send
+            SEND
           </button>
         </div>
       </div>
