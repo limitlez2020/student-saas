@@ -44,12 +44,14 @@ const NavBar = (props) => {
       </div>
 
       {/* Buttons: */}
-      <div className='flex flex-row justify-between space-x-2'>
-        <button className={`${monstserrat.className} text-base border-black bg-[#d3aefe] border-2
-                          p-2 px-4 rounded-md font-extrabold hover:bg-[#fede65]`}>
-          DEMO
-        </button>
-      </div>
+      <Link href="/demo_page">
+        <div className='flex flex-row justify-between space-x-2'>
+          <button className={`${monstserrat.className} text-base border-black bg-[#d3aefe] border-2
+                            p-2 px-4 rounded-md font-extrabold hover:bg-[#fede65]`}>
+            DEMO
+          </button>
+        </div>
+      </Link>
     </div>
   );
 }
