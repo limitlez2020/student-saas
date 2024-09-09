@@ -111,13 +111,22 @@ const HomePage = () => {
               <div className="w-36 h-36 flex items-center justify-center
                             border-black border-dashed border-2 mb-2"
               >
-                {/* <p>placeholder</p> */}
-                <Player
+                <p>placeholder</p>
+                {/* <Player
                   autoplay
                   loop
                   src="/lottie1.json"
                   style={{ height: '200px', width: '200px' }}
-                />
+                /> */}
+                {/* <Image
+                  src="/waitlist.png"
+                  width={200}
+                  height={200}
+                /> */}
+                {/* add a gif called skate.gif  */}
+                {/* <img className="w-full h-full" src="/skate.gif" /> */}
+
+                
               </div>
 
               {/* Button */}
