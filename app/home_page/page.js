@@ -4,8 +4,8 @@ import Image from "next/image";
 import NavBar from "../components/NavBar";
 import { Montserrat } from "next/font/google";
 import { Prompt } from "next/font/google";
-import { PlayCircleIcon, PlayIcon, PlusIcon, StarIcon, UserGroupIcon, UserIcon, UsersIcon } from "@heroicons/react/24/solid"
-import { Player } from 'react-lottie-player'; /* Lottie Player */
+import { PlayCircleIcon, PlayIcon, PlusIcon, StarIcon, UserCircleIcon, UserGroupIcon, UserIcon, UsersIcon } from "@heroicons/react/24/solid"
+import dynamic from "next/dynamic"; /* Import dynamic for client-side-only components - for the lottie animation */
 import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -17,6 +17,11 @@ const prompt = Prompt({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
+
+
+/* Dynamically import the Lottie Player (so it runs only on the client) */
+const Player = dynamic(() => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player), { ssr: false });
+
 
 
 
@@ -106,7 +111,13 @@ const HomePage = () => {
               <div className="w-36 h-36 flex items-center justify-center
                             border-black border-dashed border-2 mb-2"
               >
-                <p>placeholder</p>
+                {/* <p>placeholder</p> */}
+                <Player
+                  autoplay
+                  loop
+                  src="/lottie1.json"
+                  style={{ height: '200px', width: '200px' }}
+                />
               </div>
 
               {/* Button */}
@@ -196,13 +207,13 @@ const HomePage = () => {
               {/* Profiles: */}
               <div className="py-5 flex flex-row items-center -space-x-2">
                 <div className="flex justify-center items-center w-10 h-10 bg-[#c0cbed] border-black border-2 rounded-lg">
-                  <UserIcon className="size-4"/>
+                  <UserCircleIcon className="size-5"/>
                 </div>
                 <div className="flex justify-center items-center w-10 h-10 bg-[#c0cbed] border-black border-2 rounded-lg">
-                  <UsersIcon className="size-4"/>
+                  <UserCircleIcon className="size-5"/>
                 </div>
                 <div className="flex justify-center items-center w-10 h-10 bg-[#c0cbed] border-black border-2 rounded-lg">
-                  <UserGroupIcon className="size-4"/>
+                  <UserCircleIcon className="size-5"/>
                 </div>
                 {/* Add button: */}
                 <Link className="z-10" href="/waitlist_page">
