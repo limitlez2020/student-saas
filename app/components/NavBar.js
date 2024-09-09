@@ -12,10 +12,10 @@ const prompt = Prompt({
 const NavBar = (props) => {
   return (
     /* NavBar: */
-    <div className={`${prompt.className} flex flex-row mt-6 mx-10 md:mx-36 lg:mx-52
+    <div className={`${prompt.className} flex flex-row mt-10 mx-10 md:mx-36 lg:mx-52
                     max-w-[1200px] justify-between items-center rounded-xl px-5 py-3
                     shadow-sm bg-white/75 backdrop-blur-2xl border border-white/20
-                    sticky top-10 z-50`}
+                    z-50`}
     >
       {/* Logo: */}
       <Link href="/">

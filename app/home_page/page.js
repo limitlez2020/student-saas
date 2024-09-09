@@ -4,7 +4,7 @@ import Image from "next/image";
 import NavBar from "../components/NavBar";
 import { Montserrat } from "next/font/google";
 import { Prompt } from "next/font/google";
-import { PlayCircleIcon, PlayIcon, PlusIcon, StarIcon } from "@heroicons/react/24/solid"
+import { PlayCircleIcon, PlayIcon, PlusIcon, StarIcon, UserGroupIcon, UserIcon, UsersIcon } from "@heroicons/react/24/solid"
 import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -190,14 +190,19 @@ const HomePage = () => {
 
 
           {/* Right Section: */}
-          <div className="flex flex-col px-10 border-2 border-black">
+          <div className="flex flex-col px-10 border-2 border-black rounded-lg">
             <div className="flex justify-between items-center space-x-10">
               {/* Profiles: */}
               <div className="py-5 flex flex-row items-center -space-x-2">
-                {/* TODO: Add black and white proile illustrations here: */}
-                <div className="w-10 h-10 border-black border-2 rounded-lg"></div>
-                <div className="w-10 h-10 border-black border-2 rounded-lg"></div>
-                <div className="w-10 h-10 border-black border-2 rounded-lg"></div>
+                <div className="flex justify-center items-center w-10 h-10 bg-[#c0cbed] border-black border-2 rounded-lg">
+                  <UserIcon className="size-4"/>
+                </div>
+                <div className="flex justify-center items-center w-10 h-10 bg-[#c0cbed] border-black border-2 rounded-lg">
+                  <UsersIcon className="size-4"/>
+                </div>
+                <div className="flex justify-center items-center w-10 h-10 bg-[#c0cbed] border-black border-2 rounded-lg">
+                  <UserGroupIcon className="size-4"/>
+                </div>
                 {/* Add button: */}
                 <Link className="z-10" href="/waitlist_page">
                   <button className="w-5 h-5 flex justify-center items-center
