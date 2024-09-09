@@ -115,7 +115,7 @@ const ChatBot = (props) => {
         </div>
 
         {/* Input UI: */}
-        <div className={`${monstserrat.className} w-full flex flex-row items-center gap-4`}>
+        <div className={`${monstserrat.className} w-full flex flex-row items-center justify-center gap-4`}>
           <input type='text' 
                  aria-label='message'
                  placeholder='message...'

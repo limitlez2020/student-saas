@@ -86,7 +86,7 @@ const WaitlistPage = () => {
           </div>
           ) : (
           /* If the form has not been submitted: */
-          <form className="flex flex-col mt-24" onSubmit={handleSubmit}>
+          <form className="flex flex-col mt-24 mb-24" onSubmit={handleSubmit}>
 
             {/* Name Field: */}
             <div className="relative w-80">
