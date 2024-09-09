@@ -73,7 +73,7 @@ const DemoPage = () => {
                     onClick={() => handleClick("Flashcards")}
                     disabled={true}
             >
-              <p> Flashcards </p>
+              <p className="text-black/50"> Flashcards </p>
             </button>
           </div>
         </div>

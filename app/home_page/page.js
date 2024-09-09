@@ -169,13 +169,15 @@ const HomePage = () => {
                 {/* Button shadow: */}
                 <div className="absolute top-2 left-2 w-20 h-8 bg-[#c5c1ea] -rotate-3 rounded-md"></div>
                 {/* Button: */}
-                <button className="flex flex-row items-center
-                                border-black border-2 bg-white rounded-md px-2
-                                py-1 font-bold -rotate-6"
-                >
-                  <PlayCircleIcon className="size-4 mr-1 text-black"/>
-                  Demo
-                </button>
+                <Link href="/demo_page">
+                  <button className="flex flex-row items-center
+                                  border-black border-2 bg-white rounded-md px-2
+                                  py-1 font-bold -rotate-6"
+                  >
+                    <PlayCircleIcon className="size-4 mr-1 text-black"/>
+                    Demo
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
