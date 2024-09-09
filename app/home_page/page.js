@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import { Montserrat } from "next/font/google";
 import { Prompt } from "next/font/google";
 import { PlayCircleIcon, PlayIcon, PlusIcon, StarIcon, UserGroupIcon, UserIcon, UsersIcon } from "@heroicons/react/24/solid"
+import { Player } from 'react-lottie-player'; /* Lottie Player */
 import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
