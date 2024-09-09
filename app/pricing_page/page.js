@@ -21,7 +21,7 @@ const PricingPage = () => {
 
   return (
     /* Screen Container */
-    <div className="flex flex-col min-h-screen bg-[#efe6f7]">
+    <div className="flex flex-col relative min-h-screen bg-[#efe6f7]">
       {/* Background Noise */}
       <div className="absolute top-0 opacity-10 w-full h-full bg-noise-pattern"/>
 

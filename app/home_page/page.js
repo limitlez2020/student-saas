@@ -42,7 +42,7 @@ const HomePage = () => {
 
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col relative min-h-screen">
       {/* Background Noise */}
       <div className="absolute top-0 opacity-10 w-full h-full bg-noise-pattern"/>
 
