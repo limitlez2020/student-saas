@@ -1,33 +1,31 @@
+"use client"
+
 import { useState } from "react"
-// For handling fetching a quote from the quote API
 import { useEffect } from "react"    
 // import icons:
-import { BookmarkIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
+import { BookmarkIcon, PencilSquareIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
+import { Montserrat } from "next/font/google";
+import { Prompt } from "next/font/google";
+
+const monstserrat = Montserrat({ subsets: ['latin'] });
+const prompt = Prompt({ 
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
 
 
-const App = () => {
+const Todo = () => {
 
-  // State for handling the tasks
-  // Since I want to add checkboxes to each task,
-  // this "tasks" state value will not just be an array storing
-  // each task, now it will store an object 
-  // (containing the text of the task and a boolean 
-  // to see if the task is completed or not)
-  // The "task" state value remains the same:
-  //  - It will continue to store the text of the task inputted by the user
+  /* States for tasks */
   const [tasks, setTasks] = useState([]); 
   const [task, setTask] = useState("");
 
   /* State for handling the editing of tasks */
-  // Index of the task being edited
-  //    -1 means no task is being editted
   const [editTaskId, setEditTaskId] = useState(-1);
-  // Task currently being editted
+  /* Task currently being editted */
   const [editTask, setEditTask] = useState("");
 
-  // State for handling the inspirational quotes
-  // at the bottom of the page:
-  // This is the state to store the quote when fetched
+  /* State for handling the inspirational quotes */
   const [quote, setQuote] = useState("");
 
 
@@ -35,26 +33,23 @@ const App = () => {
 
 
   /*********    FUNTIONS:   ***********/
-  // Function to add tasks to the task array
+  /* Function to add tasks to the task array */
   const addTasks = () => {
-    // If the task is not empty
+    /* If the task is not empty */
     if(task !== "") {
-      // Before adding the task to the tasks array, 
-      // we want to make it an object with text and bool
+      /* Before adding the task to the tasks array, 
+       * make it an object with text and bool */
       const newTask = { text: task, completed: false};
-      // Add the task object to the tasks array
+      /* Add the task object to the tasks array */
       setTasks([...tasks, newTask]);
-      // Reset the task state
+      /* Reset the task state */
       setTask("");
-
-      // Test
-      console.log(tasks);
     }
   }
 
 
 
-  // Function to delete task:
+  /* Function to delete task: */
   const deleteTasks = (index) => {
 
     // Create a copy of the tasks array
@@ -172,19 +167,19 @@ const App = () => {
 
   return (
     // The wrapper around the whole todo app
-    <div className="flex flex-col items-center">
+    <div className={`${monstserrat.className} flex flex-col items-center w-5/6`}>
 
       {/* Date Header: */}
-      <h1 className=" text-3xl mb-8 mt-24 font-semibold text-center montserrat-font">
+      <h1 className="relative text-2xl md:text-3xl lg:text-4xl mb-8 font-bold text-center montserrat-font">
         {getDate()}
       </h1>
       
 
       {/* Input and Button */}
-      <div className=" border-2 border-black justify-center" style={{width: '448px'}}>
+      <div className={`${prompt.className} flex flex-row border-2 border-black text-sm bg-white/40 justify-center`}>
         <input type="text"
                placeholder="Add new task"
-               className=" pl-4 py-2 focus:outline-none w-96"
+               className="pl-4 py-2 bg-white/0 focus:outline-none"
                value={task}
               // Define the onchange event for our input field
               // This will update the task state with the value of the input field
@@ -202,9 +197,9 @@ const App = () => {
         />
         
         <button 
-              className=" bg-white text-black border-black border-2 px-2 ml-4
-                          rounded-md font-bold text-center
-                          hover:bg-black hover:text-cyan-50"
+              className="text-black px-2 ml-4 text-3xl
+                          rounded-md font-normal text-center
+                          hover:rotate-90 transition-transform duration-700 ease-in-out"
               
               // When the button is clicked, add the task
               onClick = {addTasks}
@@ -216,29 +211,31 @@ const App = () => {
 
 
       {/* Header */}
-      <h1 className=" text-xl mt-16 mb-2 mr-96 font-bold">
-        Todo:
-      </h1>
+      <p className={`${monstserrat.className} w-full max-w-[490px] text-left text-xl mt-14 mb-2 font-bold`}>
+        Tasks:
+      </p>
 
 
 
 
 
       {/* List of tasks */}
-      <div style={{width: '480px'}}>
+      <div className={`${prompt.className} w-full`}>
         {/* if the tasks array is not empty, display the top paert
         else, display the bottom part */}
         {tasks.length > 0 ? (
           <ul>
             {tasks.map((task, index) => (
               // Display the task in a list item
-              <div className=" flex m-4" key={index}>
+              <div className="flex gap-0 items-center justify-center m-3" 
+                   key={index}
+              >
               
                 {/* If the task is being edited, display the input field
                 else display the task */}
                 {editTaskId === index ? (
                   <input type="text"
-                         className=" pl-4 py-2 focus:outline-none w-96 border-b-2 border-black mr-6"
+                         className=" pl-4 py-2 focus:outline-none w-96 bg-white/0 border-b-2 border-black mr-6"
                          value={editTask}
                          onChange = {(e) => {
                                       setEditTask(e.target.value);
@@ -251,10 +248,9 @@ const App = () => {
                   />
                 ) : (
                   // Display the task with the checkbox:
-                  <div className=" flex pr-10 py-3 pl-3 mr-6 font-semibold self-center grow border-2 border-black">
+                  <div className=" flex pr-10 py-3 pl-3 mr-6 font-semibold self-center max-w-96 w-full border-2 border-black">
                     <button
-                      className={` mx-1 border-black border-2 ${task.completed ? "bg-gray-400" : "bg-white"} hover:bg-gray-400`}
-                      style={{height: "20px", width: "20px", alignSelf: "center"}}
+                      className={` self-center w-5 h-5 mx-1 border-black border-2 ${task.completed ? "bg-[#fede65]" : "bg-white/75"} hover:bg-[#fede65]/45`}
                       onClick={() => 
                         toggleTaskCompletion(index)
                       }
@@ -262,69 +258,63 @@ const App = () => {
                     </button>
 
                     {/* if task is completed, have a line through the text */}
-                    <li className={` ml-2 text-left ${task.completed ? ("line-through text-gray-400 font-normal") : ''}`}>
+                    <li className={`ml-2 text-left font-light ${task.completed ? ("line-through text-gray-400") : ''}`}>
                       {task.text}
                     </li>
                   </div>
-
-
-                  // Display task:
-                  // <li className=" pr-10 py-3 pl-3 mr-6 border-2 border-black font-semibold self-center grow ">
-                  //   {task.text}
-                  // </li>
                 )}
 
 
 
 
-                {/* Edit + Save Button: */}
-                {/* Toggle between Save and Edit Button based on
-                    the editTaskId. If the editTaskId is = the index of the task
-                    display the Save Button, else display the Edit Button */}
-                {editTaskId === index ? (
-                  <button
-                    className="bg-slate-900 p-2 mx-1 text-white font-bold border-white border-2
-                               hover:bg-slate-600 hover:border-black hover:border-2}"
-                    onClick={updateTasks}
+                <div className="flex flex-row gap-1">
+                  {/* Edit + Save Button: */}
+                  {/* Toggle between Save and Edit Button based on
+                      the editTaskId. If the editTaskId is = the index of the task
+                      display the Save Button, else display the Edit Button */}
+                  {editTaskId === index ? (
+                    <button
+                      className="flex items-center justify-center bg-black w-10 h-10 p-2 text-white font-bold
+                                hover:bg-black/75 hover:border-black hover:border-2}"
+                      onClick={updateTasks}
+                    >
+                      {/* Use save icon */}
+                      <BookmarkIcon className="size-4"/>
+                    </button>
+                  ) : (
+                    <button
+                      className="flex items-center justify-center bg-black w-10 h-10 p-2 text-white font-bold
+                                self-center hover:bg-black/75 hover:border-black hover:border-2}"
+                      onClick={() => editTasks(index)}
+                    >
+                      {/* Use edit icon */}
+                      <PencilSquareIcon className="size-4"/>
+                    </button>
+                  )}
+
+
+
+                {/* Delete Button: */}
+                  <button 
+                    className="flex items-center justify-center bg-[#d3aefe] w-10 h-10 p-2 text-black font-bold border-black border-2
+                    self-center hover:bg-[#9f6cd9]"
+
+                    // We could have just called onClick= {deleteTasks(index)}
+                    // But this would have called deleteTasks automatically
+                    // So anytime you added a task, it is deleted automatically
+                    // So we have to wrap it in an anonymous function
+                    onClick= {() => deleteTasks(index)}
                   >
-                    {/* Use save icon */}
-                    <BookmarkIcon className="size-4"/>
+                    {/* Use Trashcan Icon: */}
+                    <TrashIcon className="size-4"/>
                   </button>
-                ) : (
-                  <button
-                    className="bg-slate-900 p-2 mx-1 text-white font-bold border-white border-2
-                               self-center hover:bg-slate-600 hover:border-black hover:border-2}"
-                    style={{ height: "50px"}}
-                    onClick={() => editTasks(index)}
-                  >
-                    {/* Use edit icon */}
-                    <PencilSquareIcon className="size-4"/>
-                  </button>
-                )}
-
-
-
-               {/* Delete Button: */}
-                <button 
-                  className=" bg-red-900 p-2 mx-1 text-white font-bold border-white border-2
-                  self-center hover:bg-red-700 hover:border-black hover:border-2}"
-                  style={{ height: "50px"}}
-
-                  // We could have just called onClick= {deleteTasks(index)}
-                  // But this would have called deleteTasks automatically
-                  // So anytime you added a task, it is deleted automatically
-                  // So we have to wrap it in an anonymous function
-                  onClick= {() => deleteTasks(index)}
-                >
-                  {/* Use Trashcan Icon: */}
-                  <TrashIcon className="size-4"/>
-                </button>
+                </div>
               </div>
             ))}
           </ul>
         ) : (
           // If tasks array is empty, display this
-          <p className=" p-3 m-3">
+          <p className="max-w-96 w-full text-center p-3 my-3 mx-2">
             No tasks found
           </p>
         )}
@@ -332,13 +322,11 @@ const App = () => {
 
 
       {/* To Display the Quotes at the bottom: */}
-      <div className=" mt-20 mb-16"
-           style={{width: '440px'}}
-      >
-        <h1 className=" text-sm font-semibold">
+      <div className=" w-full max-w-96 self-center px-3 mt-20 mb-16">
+        <h1 className=" text-xs font-semibold text-left">
           Quote of the Day:
         </h1>
-        <p className=" mt-4 text-slate-600 text-sm italic">
+        <p className=" mt-4 text-slate-600 text-xs italic">
           "{quote}"
         </p>
       </div>
@@ -348,4 +336,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Todo

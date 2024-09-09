@@ -3,6 +3,7 @@
 import Image from "next/image";
 import NavBar from "../components/NavBar";
 import ChatBot from "../components/ChatBot";
+import Todo from "../components/Todo";
 import { Montserrat } from "next/font/google";
 import { Prompt } from "next/font/google";
 import { PlayCircleIcon, PlayIcon, PlusIcon, StarIcon } from "@heroicons/react/24/solid"
@@ -69,16 +70,23 @@ const DemoPage = () => {
             </button>
             {/* Flashcards */}
             <button className={`px-4 py-2 rounded-md ${isClicked === "Flashcards" ? "bg-white" : ""}`}
-                    onClick={() => handleClick("Flashcards")}>
+                    onClick={() => handleClick("Flashcards")}
+                    disabled={true}
+            >
               <p> Flashcards </p>
             </button>
           </div>
         </div>
 
-        {/* Tool */}
+        {/* Tools */}
         {isClicked === "Chatbot" && (
           <div className="flex flex-col w-5/6 items-center gap-4 z-10 mb-20">
             <ChatBot/>
+          </div>
+        )}
+        {isClicked === "Todo" && (
+          <div className="flex flex-col w-5/6 items-center gap-4 z-10 mb-20">
+            <Todo/>
           </div>
         )}
       </div>
