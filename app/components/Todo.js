@@ -327,7 +327,7 @@ const Todo = () => {
           Quote of the Day:
         </h1>
         <p className="mt-4 text-slate-600 text-xs italic">
-          &quot;{quote}&quot;
+          {quote}
         </p>
       </div>
 
