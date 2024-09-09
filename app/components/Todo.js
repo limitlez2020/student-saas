@@ -322,12 +322,12 @@ const Todo = () => {
 
 
       {/* To Display the Quotes at the bottom: */}
-      <div className=" w-full max-w-96 self-center px-3 mt-20 mb-16">
-        <h1 className=" text-xs font-semibold text-left">
+      <div className="w-full max-w-96 self-center px-3 mt-20 mb-16">
+        <h1 className="text-xs font-semibold text-left">
           Quote of the Day:
         </h1>
-        <p className=" mt-4 text-slate-600 text-xs italic">
-          "{quote}"
+        <p className="mt-4 text-slate-600 text-xs italic">
+          &quot;{quote}&quot;
         </p>
       </div>
 
