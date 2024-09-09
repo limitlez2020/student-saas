@@ -77,7 +77,7 @@ const DemoPage = () => {
 
         {/* Tool */}
         {isClicked === "Chatbot" && (
-          <div className="flex flex-col items-center gap-4 z-10 mb-20">
+          <div className="flex flex-col w-5/6 items-center gap-4 z-10 mb-20">
             <ChatBot/>
           </div>
         )}

@@ -5,6 +5,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Montserrat } from 'next/font/google';
 import { Prompt } from 'next/font/google';
+import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 
 const monstserrat = Montserrat({ subsets: ['latin'] });
 const prompt = Prompt({ 
@@ -15,7 +16,7 @@ const prompt = Prompt({
 const ChatBot = (props) => {
   const [messages, setMessages] = useState([{
     role: "assistant",
-    content: "Hey there! How are you feeling today?",
+    content: "Hey there! I am your python tutor. What can I help you with today?",
   }])
 
   /* Message state for whatever ,message you'll be typing in the chat box: */
@@ -105,7 +106,7 @@ const ChatBot = (props) => {
                               ${message.role === "assistant" ? "items-start" : "items-end"}`}>
                 <div 
                   className={`p-2 rounded-lg
-                            ${message.role === "assistant" ? "bg-black/30 text-white" : "bg-white text-black"}`}>
+                            ${message.role === "assistant" ? "bg-[#3C3C3C] text-white" : "bg-white text-black"}`}>
                   {message.content}
                 </div>
               </div>
@@ -114,12 +115,12 @@ const ChatBot = (props) => {
         </div>
 
         {/* Input UI: */}
-        <div className={`${monstserrat.className} w-full flex flex-row items-center gap-2`}>
+        <div className={`${monstserrat.className} w-full flex flex-row items-center gap-4`}>
           <input type='text' 
                  aria-label='message'
                  placeholder='message...'
-                 className='flex-grow p-2 border-2 border-solid bg-white/30 text-sm
-                          border-black rounded-lg'
+                 className='flex-grow p-2 border-2 border-solid bg-white text-sm
+                          border-black text-black font-semibold rounded-lg'
                  value={message}
                  onChange={(e) => setMessage(e.target.value)}
                  onKeyDown={(e) => {
@@ -128,11 +129,11 @@ const ChatBot = (props) => {
                     }
                  }}
           />
-          <button className='p-2 bg-[#d3aefe] text-black rounded-lg border-black
+          <button className='p-2 bg-[#fede65] text-black rounded-lg border-black
                              border-2 font-bold text-sm'
                   onClick={sendMessage}
           >
-            SEND
+            <PaperAirplaneIcon className="size-5"/>
           </button>
         </div>
       </div>
