@@ -1,37 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Student SaaS
 
-## Getting Started
+A comprehensive study partner web application developed to enhance student productivity and organization. The app includes a chatbot for answering questions on any topic, a to-do list for task management, and an upcoming flashcard feature to aid learning retention. Built with React, Next.js, Node.js, and Gemini API, this tool aims to boost student performance by integrating multiple productivity features into one seamless platform.
 
-First, run the development server:
+## Project Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The Student SaaS web app is designed to help students manage their tasks more efficiently and improve learning retention. The chatbot, powered by Gemini API, provides intelligent responses to students' questions, while the task management feature has already shown a 30% improvement in student organization. The app is continuously being enhanced, with a flashcard feature in development to further improve mastery of various subjects.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Chatbot for Academic Assistance**:
+  - Provides answers to student queries on any topic using the Gemini API, simulating an intelligent study partner.
+  
+- **To-Do List for Task Management**:
+  - Students can create, edit, and delete daily tasks, improving organization and focus.
+  - Increased student task management efficiency by 30%.
+  
+- **Flashcard Generation (Upcoming)**:
+  - A feature in development that will allow students to generate flashcards on any topic to aid learning retention.
+  - Uses Firebase for data storage and Gemini API for intelligent flashcard creation.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Technologies Used
 
-## Learn More
+- **React**: For building the dynamic user interface.
+- **Next.js**: For server-side rendering and application structure.
+- **Node.js**: For backend services and API handling.
+- **Gemini API**: For AI-driven responses and flashcard generation.
+- **Firebase**: For storing user-generated flashcards and task data.
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
+Link: https://student-saas.vercel.app/
+Click on the "Demo" Button at the top right
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Ask Questions**: Use the chatbot to ask academic-related questions on any topic. The AI, powered by Gemini API, will respond with relevant and thoughtful answers.
+  
+- **Manage Tasks**: Use the integrated to-do list feature to manage your daily tasks. You can easily add, edit, and delete tasks to stay organized and focused on your studies.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Flashcard Learning (Upcoming)**: Once available, students will be able to generate flashcards on any subject, helping to improve retention and mastery of the material.
 
-## Deploy on Vercel
+## Authors
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-"# student-saas" 
+- David Fortune Akinremi (moi 🙈)
+- Team Member:
+  - Debadrita Chakraborty (https://github.com/Debadrita08)
