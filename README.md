@@ -29,6 +29,7 @@ The Student SaaS web app is designed to help students manage their tasks more ef
 
 ## Usage
 Link: https://student-saas.vercel.app/
+
 Click on the "Demo" Button at the top right
 
 - **Ask Questions**: Use the chatbot to ask academic-related questions on any topic. The AI, powered by Gemini API, will respond with relevant and thoughtful answers.
