@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image";
+import React from 'react';
 import NavBar from "../components/NavBar";
 import { Montserrat } from "next/font/google";
 import { Prompt } from "next/font/google";
@@ -11,6 +12,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "@/firebase";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 
 const monstserrat = Montserrat({ subsets: ['latin'] });
 const prompt = Prompt({ 
@@ -21,7 +24,6 @@ const prompt = Prompt({
 
 /* Dynamically import the Lottie Player (so it runs only on the client) */
 const Player = dynamic(() => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player), { ssr: false });
-
 
 
 
@@ -206,7 +208,13 @@ const HomePage = () => {
 
           {/* MIddle Section: */}
           <div className="border-black border-2 border-dashed w-96 flex items-center justify-center">
-            placeholder
+            {/* Dot Lottie Component */}
+              <DotLottieReact
+                className="w-64 h-36"
+                src="https://lottie.host/dce412e6-e9e3-49cf-a9fb-64af0267c1e7/gGkAGLZwVA.lottie"
+                loop
+                autoplay
+              /> 
           </div>
 
 

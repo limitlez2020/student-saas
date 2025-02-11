@@ -125,7 +125,6 @@ const WaitlistPage = () => {
                           hover:scale-105 transition-transform
                           duration-500 ease-in-out`}
               type="submit"
-              onClick={handleSubmit}
             >
               Join Waitlist
             </button>
