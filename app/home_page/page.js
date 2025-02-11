@@ -60,7 +60,7 @@ const HomePage = () => {
       <div className="flex flex-col items-center justify-center mt-24 mx-10 md:mx-36 lg:mx-52">
         {/* Hero Text: */}
         <div className="flex flex-col items-center justify-center mb-20 max-w-[1200px]">
-          <p className={`${monstserrat.className} text-5xl font-extrabold text-center md:text-6xl lg:text-6xl`}>
+          <p className={`${monstserrat.className} text-4xl sm:text-5xl font-extrabold text-center md:text-6xl`}>
             {/* LEARN SMART, <br /> ACHIEVE MORE */}
             LEARN SMART
           </p>
