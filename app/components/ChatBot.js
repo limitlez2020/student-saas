@@ -97,7 +97,7 @@ const ChatBot = (props) => {
       <div className='flex min-h-screen flex-col items-center py-10 px-4 sm:px-10'>
         {/* Messages */}
         <div className='flex flex-col overflow-y-auto space-y-2 flex-grow
-                        h-96 mb-10'>
+                        w-full h-96 mb-10'>
           {/* DIsplay the messages: */}
           {
             messages.map((message, index) => (
