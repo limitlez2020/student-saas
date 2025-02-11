@@ -173,7 +173,7 @@ const HomePage = () => {
 
         {/*********  FOOTER:  **********/}
         <div className="flex flex-wrap border-2 border-black max-w-[1200px] w-full
-                        h-auto py-5 px-5 mb-16 rounded-3xl gap-24 justify-center"
+                        h-auto py-5 px-5 mb-16 rounded-3xl gap-16 lg:gap-10 justify-center"
         >
           {/* Left Section: */}
           <div className={`${monstserrat.className} relative`}>
