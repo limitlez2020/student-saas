@@ -65,7 +65,7 @@ const WaitlistPage = () => {
             {/* Join The Waitlist, <br/> Get Early Access to */}
             Join the waitlist. <br/> Get early access to
           </p>
-          <p className={`${monstserrat.className} bg-white border-black border-2 mt-4 px-4 py-2
+          <p className={`${monstserrat.className} bg-white border-black border-2 mt-3 px-4 py-2
                          rounded-xl  text-xl sm:text-2xl md:text-3xl font-bold -rotate-3 hover:rotate-3 transition-transform
                          duration-500 ease-in-out`}
           >
