@@ -215,10 +215,10 @@ const HomePage = () => {
 
 
           {/* Right Section: */}
-          <div className="flex flex-col w-96 px-10 border-2 border-black rounded-lg">
-            <div className="flex justify-between items-center space-x-10">
+          <div className="flex flex-row w-96 px-10 gap-4 border-2 border-black rounded-lg">
+            <div className="flex flex-col items-center bg-gay-500 w-4/5">
               {/* Profiles: */}
-              <div className="py-5 flex flex-row items-center -space-x-2">
+              <div className="py-5 flex flex-row self-start items-center -space-x-2">
                 <div className="flex justify-center items-center w-10 h-10 bg-[#c0cbed] border-black border-2 rounded-lg">
                   <UserCircleIcon className="size-5"/>
                 </div>
@@ -239,14 +239,18 @@ const HomePage = () => {
                   </button>
                 </Link>
               </div>
-              {/* Number of People on Waitlist: */}
-              <p className="font-medium text-3xl"> {waitlistTotal} </p>
+              
+              {/* Text: */}
+              <p className={`${prompt.className} self-start text-base font-medium`}>
+                NUMBER OF PEOPLE <br/> ON THE WAITLIST
+              </p>
             </div>
 
-            {/* Text: */}
-            <p className={`${prompt.className} text-base font-medium`}>
-              # OF PEOPLE ON THE <br/> THE WAITLIST
-            </p>
+
+            {/* Number of People on Waitlist: */}
+            <div className="flex items-center bg-gr">
+              <p className="font-bold text-6xl"> {waitlistTotal} </p>
+            </div>
           </div>
         </div>
       </div>
