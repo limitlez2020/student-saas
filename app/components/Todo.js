@@ -170,7 +170,7 @@ const Todo = () => {
     <div className={`${monstserrat.className} flex flex-col items-center border-dashed border-2 border-black w-full py-10`}>
 
       {/* Date Header: */}
-      <h1 className="relative text-2xl md:text-3xl lg:text-4xl mb-6 font-bold text-center montserrat-font">
+      <h1 className="relative text-lg md:text-xl lg:text-2xl mb-6 font-bold text-center montserrat-font">
         {getDate()}
       </h1>
       
@@ -211,7 +211,7 @@ const Todo = () => {
 
 
       {/* Header */}
-      <p className={`${monstserrat.className} w-full pl-7 text-left text-xl mt-14 mb-1 font-bold`}>
+      <p className={`${monstserrat.className} w-full pl-7 text-left text-lg md:text-xl mt-14 mb-1 font-semibold`}>
         Tasks:
       </p>
 
@@ -314,7 +314,7 @@ const Todo = () => {
           </ul>
         ) : (
           // If tasks array is empty, display this
-          <p className="max-w-96 w-full text-left py-3 my-3 mx-7">
+          <p className="max-w-96 w-full text-left my-3 mx-7 text-sm md:text-base">
             No tasks found
           </p>
         )}

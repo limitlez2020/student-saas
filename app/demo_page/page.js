@@ -39,7 +39,7 @@ const DemoPage = () => {
       <NavBar/>
 
       {/* Hero Section: */}
-      <div className="flex flex-col items-center justify-center mt-24 mx-10 md:mx-36 lg:mx-52">
+      <div className="flex flex-col items-center justify-center mt-24 md:mx-36 lg:mx-52">
         {/* Hero Text: */}
         <div className="flex flex-col items-center justify-center mb-20">
           <p className={`${monstserrat.className} text-6xl font-extrabold text-center
