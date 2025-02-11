@@ -167,10 +167,10 @@ const Todo = () => {
 
   return (
     // The wrapper around the whole todo app
-    <div className={`${monstserrat.className} flex flex-col items-center w-5/6`}>
+    <div className={`${monstserrat.className} flex flex-col items-center border-dashed border-2 border-black w-full py-10`}>
 
       {/* Date Header: */}
-      <h1 className="relative text-2xl md:text-3xl lg:text-4xl mb-8 font-bold text-center montserrat-font">
+      <h1 className="relative text-2xl md:text-3xl lg:text-4xl mb-6 font-bold text-center montserrat-font">
         {getDate()}
       </h1>
       
@@ -211,7 +211,7 @@ const Todo = () => {
 
 
       {/* Header */}
-      <p className={`${monstserrat.className} w-full max-w-[490px] text-left text-xl mt-14 mb-2 font-bold`}>
+      <p className={`${monstserrat.className} w-full pl-7 text-left text-xl mt-14 mb-1 font-bold`}>
         Tasks:
       </p>
 
@@ -227,7 +227,7 @@ const Todo = () => {
           <ul>
             {tasks.map((task, index) => (
               // Display the task in a list item
-              <div className="flex gap-0 items-center justify-center m-3" 
+              <div className="flex gap-0 items-center justify-center my-3 mx-7" 
                    key={index}
               >
               
@@ -248,7 +248,7 @@ const Todo = () => {
                   />
                 ) : (
                   // Display the task with the checkbox:
-                  <div className=" flex pr-10 py-3 pl-3 mr-6 font-semibold self-center max-w-96 w-full border-2 border-black">
+                  <div className=" flex pr-10 py-3 pl-3 mr-6 font-semibold self-center w-full border-2 border-black">
                     <button
                       className={` self-center w-5 h-5 mx-1 border-black border-2 ${task.completed ? "bg-[#fede65]" : "bg-white/75"} hover:bg-[#fede65]/45`}
                       onClick={() => 
@@ -314,22 +314,24 @@ const Todo = () => {
           </ul>
         ) : (
           // If tasks array is empty, display this
-          <p className="max-w-96 w-full text-center p-3 my-3 mx-2">
+          <p className="max-w-96 w-full text-left py-3 my-3 mx-7">
             No tasks found
           </p>
         )}
       </div>
 
 
+      {/* TODO: The quote fetching is not working */}
+      {/* TODO: The API is down, use the one in the actual app */}
       {/* To Display the Quotes at the bottom: */}
-      <div className="w-full max-w-96 self-center px-3 mt-20 mb-16">
+      {/* <div className="w-full max-w-96 self-center px-3 mt-20 mb-16">
         <h1 className="text-xs font-semibold text-left">
           Quote of the Day:
         </h1>
         <p className="mt-4 text-slate-600 text-xs italic">
           {quote}
         </p>
-      </div>
+      </div> */}
 
 
     </div>
