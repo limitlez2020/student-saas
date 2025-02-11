@@ -37,7 +37,7 @@ export async function POST(req) {
     const prompt = `${model.systemInstruction}\n\nHere's what has been discussed so far:${conversationHistory}\n`;
 
     /* Send user's prompt and then get assistant's response: */
-    const result = await model.generateContentStream(prompt);
+    const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = response.text();
 
