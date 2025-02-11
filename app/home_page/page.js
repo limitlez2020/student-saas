@@ -241,7 +241,7 @@ const HomePage = () => {
               </div>
               
               {/* Text: */}
-              <p className={`${prompt.className} self-start text-base font-medium`}>
+              <p className={`${prompt.className} self-start text-sm sm:text-base font-medium`}>
                 NUMBER OF PEOPLE <br/> ON THE WAITLIST
               </p>
             </div>
