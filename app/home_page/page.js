@@ -215,7 +215,7 @@ const HomePage = () => {
 
 
           {/* Right Section: */}
-          <div className="flex flex-col px-10 border-2 border-black rounded-lg">
+          <div className="flex flex-col w-96 px-10 border-2 border-black rounded-lg">
             <div className="flex justify-between items-center space-x-10">
               {/* Profiles: */}
               <div className="py-5 flex flex-row items-center -space-x-2">
