@@ -96,8 +96,10 @@ const ChatBot = (props) => {
       {/* Chat Area UI: */}
       <div className='flex min-h-screen flex-col items-center py-10 px-4 sm:px-10'>
         {/* Messages */}
-        <div className='flex flex-col overflow-y-auto space-y-2 flex-grow
-                        w-full h-96 mb-10'>
+        <div className='flex flex-col overflow-y-auto space-y-2 flex-grow w-full h-96
+                        mb-10 scrollbar-thin scrollbar-thumb-[#676767]
+                        scrollbar-track-[#373737] pr-2'
+        >
           {/* DIsplay the messages: */}
           {
             messages.map((message, index) => (
