@@ -59,12 +59,12 @@ const HomePage = () => {
       {/* Hero Section: */}
       <div className="flex flex-col items-center justify-center mt-24 mx-10 md:mx-36 lg:mx-52">
         {/* Hero Text: */}
-        <div className="flex flex-col items-center justify-center mb-20">
+        <div className="flex flex-col items-center justify-center mb-20 max-w-[1200px]">
           <p className={`${monstserrat.className} text-5xl font-extrabold text-center md:text-6xl lg:text-6xl`}>
             {/* LEARN SMART, <br /> ACHIEVE MORE */}
             LEARN SMART
           </p>
-          <p className={`${prompt.className} text-base font-normal w-3/5 text-center md:text-lg lg:text-lg`}>
+          <p className={`${prompt.className} text-sm font-normal w-4/5 lg:w-3/5 text-center sm:text-lg`}>
             {/* Your ultimate study companion, designed to support you <br/>through every challenge, 
             keep you organized, <br/> and help you excel in your academic journey
             <br/> one smart step at a time */}
