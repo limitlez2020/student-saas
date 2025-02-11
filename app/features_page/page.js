@@ -49,7 +49,7 @@ const FeaturesPage = () => {
         </div>
 
         <p className={`${prompt.className} text-center font-normal text-sm md:text-base lg:text-lg mt-12`}>
-          This page is currently under construction 🚧
+          Features currently under construction 🚧
         </p>
       </div>
     </div>

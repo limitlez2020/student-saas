@@ -114,19 +114,13 @@ const HomePage = () => {
                             border-black border-dashed border-2 mb-2"
               >
                 <p>placeholder</p>
-                {/* <Player
-                  autoplay
-                  loop
-                  src="/lottie1.json"
-                  style={{ height: '200px', width: '200px' }}
+                {/* <DotLottieReact
+                      // className="w-96 h-60"
+                      // src="https://lottie.host/3fbdf8e5-10c9-4655-943b-5d83af414773/I3ALhXXGUB.lottie"
+                      src="https://lottie.host/50e81d64-b04e-4410-b7f3-c867af919d22/lWeMckiVsi.lottie"
+                      loop
+                      autoplay
                 /> */}
-                {/* <Image
-                  src="/waitlist.png"
-                  width={200}
-                  height={200}
-                /> */}
-                {/* add a gif called skate.gif  */}
-                {/* <img className="w-full h-full" src="/skate.gif" /> */}
 
                 
               </div>
