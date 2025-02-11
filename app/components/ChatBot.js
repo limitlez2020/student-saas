@@ -91,13 +91,13 @@ const ChatBot = (props) => {
 
 
   return(
-    <div className={`${prompt.className} w-full flex flex-col justify-center bg-[#1E1E1E]
-                   align-middle border-black/20 border-2 rounded-2xl shadow-inner`}>
+    <div className={`${prompt.className} w-full flex flex-col bg-[#1E1E1E]
+                   border-black/20 border-2 rounded-2xl shadow-inner`}>
       {/* Chat Area UI: */}
-      <div className='flex min-h-screen flex-col items-center p-12'>
+      <div className='flex min-h-screen flex-col items-center py-10 px-4 sm:px-10'>
         {/* Messages */}
-        <div className='flex flex-col space-y-2 space-x-2 flex-grow
-                        max-h-full mb-16'>
+        <div className='flex flex-col overflow-y-auto space-y-2 flex-grow
+                        h-96 mb-10'>
           {/* DIsplay the messages: */}
           {
             messages.map((message, index) => (
