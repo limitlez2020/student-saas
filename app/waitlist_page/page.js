@@ -60,12 +60,13 @@ const WaitlistPage = () => {
       {/* Contents Container: */}
       <div className="flex flex-col items-center justify-center mt-24 mx-10 md:mx-36 lg:mx-52">
         {/******  HERO  *******/}
-        <div className="flex flex-col items-center justify-center text-center">
-          <p className={`${monstserrat.className} text-5xl font-bold mx-20 md:text-6xl lg:text-6xl`}>
-            Join The Waitlist, <br/> Get Early Access to
+        <div className="flex flex-col items-center justify-center text-center lg:mx-10">
+          <p className={`${monstserrat.className} font-bold text-3xl sm:text-4xl md:text-5xl`}>
+            {/* Join The Waitlist, <br/> Get Early Access to */}
+            Join the waitlist. <br/> Get early access to
           </p>
           <p className={`${monstserrat.className} bg-white border-black border-2 mt-4 px-4 py-2
-                         rounded-xl text-3xl font-bold -rotate-3 hover:rotate-3 transition-transform
+                         rounded-xl text-2xl md:text-3xl font-bold -rotate-3 hover:rotate-3 transition-transform
                          duration-500 ease-in-out`}
           >
             Claud.
