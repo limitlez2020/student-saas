@@ -88,14 +88,23 @@ const HomePage = () => {
               <div className="bg-[#d3aefe] w-60 h-60 rounded-xl shadow-md relative">
                 <p className="flex justify-center items-center text-sm bg-black rounded-full
                               w-10 h-10 text-white absolute left-1/2 -top-4 transform -translate-x-1/2">
-                  #1
+                  A+
                 </p>
-                <p className="text-base font-normal text-center pt-12">
-                  All-in-one <br /> Learning Platform
+                <p className="text-base font-normal text-center pt-9">
+                  {/* All-in-one <br /> Learning Platform */}
+                  Learning Platform
                 </p>
                 <p className="text-base font-medium text-center">
                   For Students!
                 </p>
+                {/* Add svg from images folder */}
+                <div className="flex justify-center mt-3">
+                  <img
+                    className="w-32 h-32"
+                    src="/programming.svg"
+                    alt="learning"
+                  />
+                </div>
               </div>
             </div>
 
@@ -156,12 +165,21 @@ const HomePage = () => {
                               w-10 h-10 text-white absolute left-1/2 -top-4 transform -translate-x-1/2">
                   <StarIcon className="size-4 text-yellow-200"/>
                 </div>
-                <p className="text-3xl font-semibold text-center pt-12 pb-3">
-                  4.9
+                <p className="text-5xl font-semibold text-center pt-[3.5rem] pb-1">
+                  150%
                 </p>
                 <p className="text-base font-normal text-center">
-                  #satisfied <span className="font-medium"> users <br/> worldwide </span>
+                  {/* #satisfied <span className="font-medium"> users <br/> worldwide </span> */}
+                  Increase in productivity
                 </p>
+                {/* Add svg image: */}
+                <div className="flex justify-center">
+                  <img
+                    className="w-20 h-20"
+                    src="/success_illustration.svg"
+                    alt="increase"
+                  />
+                </div>
               </div>
             </div>
           </div>
