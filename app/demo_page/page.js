@@ -25,7 +25,8 @@ const prompt = Prompt({
 const DemoPage = () => {
   
   /* Track which tool is clicked: */
-  const [isClicked, setIsClicked] = useState(false);
+  /* Start with the todo tool open */
+  const [isClicked, setIsClicked] = useState("Todo");
   const handleClick = (tool) => {
     setIsClicked(tool);
   }
