@@ -91,8 +91,8 @@ const ChatBot = (props) => {
 
 
   return(
-    <div className={`${prompt.className} w-full flex flex-col bg-[#1E1E1E]
-                   border-black/20 border-2 rounded-2xl shadow-inner`}>
+    <div className={`${prompt.className} w-full flex flex-col
+                   border-black border-2 border-dashed`}>
       {/* Chat Area UI: */}
       <div className='flex min-h-screen flex-col items-center py-10 px-4 sm:px-10'>
         {/* Messages */}
@@ -107,7 +107,7 @@ const ChatBot = (props) => {
                    className={`flex flex-col space-y-2
                               ${message.role === "assistant" ? "items-start" : "items-end"}`}>
                 <div 
-                  className={`p-2 rounded-lg
+                  className={`p-2
                             ${message.role === "assistant" ? "bg-[#3C3C3C] text-white" : "bg-white text-black"}`}>
                   {message.content}
                 </div>
@@ -121,8 +121,8 @@ const ChatBot = (props) => {
           <input type='text' 
                  aria-label='message'
                  placeholder='message...'
-                 className='flex-grow p-2 border-2 border-solid bg-white text-sm
-                          border-black text-black font-semibold rounded-lg'
+                 className='flex-grow p-2 border-2 border-solid bg-white/40 text-sm
+                          border-black text-black font-semibold'
                  value={message}
                  onChange={(e) => setMessage(e.target.value)}
                  onKeyDown={(e) => {
